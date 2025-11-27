@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Relación: Un usuario tiene muchos cócteles
+     */
+    public function cocktails()
+    {
+        return $this->hasMany(Cocktail::class);
+    }
 }

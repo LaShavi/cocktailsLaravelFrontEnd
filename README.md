@@ -1,59 +1,112 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🍹 Aplicación de Cócteles Laravel - Prueba Técnica
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Una aplicación moderna de Laravel 12 que consume la API pública de TheCocktailDB para explorar y guardar recetas de cócteles. Construida con autenticación, persistencia de datos y una interfaz de usuario intuitiva utilizando Blade templates, jQuery, DataTables y Tailwind CSS.
 
-## About Laravel
+## 🎯 Descripción General del Proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Esta prueba técnica demuestra capacidades de desarrollo web full-stack con:
+- **Autenticación de Usuarios**: Login seguro, registro y restablecimiento de contraseña mediante Laravel Breeze
+- **Integración de API**: Consumo en tiempo real de la API REST de TheCocktailDB
+- **Persistencia de Datos**: Almacenamiento en MySQL de cócteles guardados por el usuario
+- **Interfaz Interactiva**: Búsqueda y operaciones save/delete con AJAX sin recargar la página
+- **UX Profesional**: DataTables para ordenamiento/filtrado, SweetAlert2 para confirmaciones
+- **Diseño Responsivo**: Diseño amigable con dispositivos móviles con Tailwind CSS
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Inicio Rápido
 
-## Learning Laravel
+### Requisitos Previos
+- **PHP**: 8.3+ (incluido con Laragon)
+- **MySQL**: 8.0+ (incluido con Laragon)
+- **Node.js**: 18+ (para compilación de assets)
+- **Composer**: 2.0+ (para dependencias de PHP)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/LaShavi/cocktailsLaravelFrontEnd.git
+   cd cocktailsLaravelFrontEnd
+   ```
 
-## Laravel Sponsors
+2. **Instalar dependencias de PHP**
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Instalar dependencias de JavaScript**
+   ```bash
+   npm install
+   ```
 
-### Premium Partners
+4. **Crear configuración de entorno**
+   ```bash
+   cp .env.example .env
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. **Generar clave de aplicación**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Contributing
+6. **Actualizar credenciales de base de datos en `.env`**
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=cocktails_db
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. **Ejecutar migraciones de base de datos**
+   ```bash
+   php artisan migrate
+   ```
 
-## Code of Conduct
+8. **Compilar assets del frontend**
+   ```bash
+   npm run build
+   # O para desarrollo con hot reload:
+   npm run dev
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+9. **Iniciar la aplicación**
+   ```bash
+   php artisan serve
+   # Visita: http://localhost:8000
+   ```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📋 Características
 
-## License
+### 🔐 Sistema de Autenticación
+- Registro de usuarios con validación de email
+- Login seguro con funcionalidad "Recuérdame"
+- Restablecimiento de contraseña por enlace de correo
+- Gestión de perfil y eliminación de cuenta
+- **Tecnología**: Laravel Breeze, Laravel Guard, hash bcrypt
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🍸 Exploración de Cócteles
+- **Funcionalidad de Búsqueda**: Encuentra cócteles por nombre desde TheCocktailDB
+- **Descubrimiento Aleatorio**: Carga 12 cócteles aleatorios en la carga inicial de la página
+- **Vista Detallada**: Cada cóctel muestra nombre, categoría, tipo de copa, imagen e instrucciones
+- **Guardar en Favoritos**: Guardado con un clic mediante AJAX (sin recarga de página)
+- **Ruta**: `/cocktails` (protegida por middleware auth)
+
+### 💾 Gestión de Favoritos
+- **Visualización en DataTable**: Tabla interactiva con ordenamiento, filtrado y paginación
+- **Persistencia de Base de Datos**: Cócteles guardados específicos del usuario almacenados en MySQL
+- **Operación de Eliminación**: Elimina cócteles con confirmación de SweetAlert2
+- **Tabla Responsiva**: Diseño optimizado para móviles con desplazamiento horizontal en pantallas pequeñas
+- **Ruta**: `/favorites` (protegida por middleware auth)
+
+### 🔒 Autorización y Seguridad
+- **Seguridad a Nivel de Fila**: Los usuarios solo pueden eliminar sus propios cócteles guardados mediante `CocktailPolicy`
+- **Protección CSRF**: Todos los formularios incluyen verificación de token CSRF
+- **Middleware de Autenticación**: Las rutas protegidas requieren login
+- **Relaciones de Base de Datos**: Las restricciones de clave externa aseguran integridad de datos
+
+---
